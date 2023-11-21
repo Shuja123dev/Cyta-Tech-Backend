@@ -8,4 +8,5 @@ server.get('/', async (req, res) => {
     res.send("Mails Here..");
 })
 
-server.listen(process.env.PORT || 4001);
+module.exports.app = server;
+module.exports.handler = serverless(server);
