@@ -8,4 +8,4 @@ server.get('/', async (req, res) => {
     res.send("Mails Here..");
 })
 
-server.listen(4001);
+server.listen(process.env.PORT || 4001);
