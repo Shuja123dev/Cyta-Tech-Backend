@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodeMialer = require("nodemailer");
+const serverless = require("serverless-http")
 
 const server = express();
 
