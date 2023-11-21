@@ -9,5 +9,5 @@ server.get('/', async (req, res) => {
     res.send("Mails Here..");
 })
 
-module.exports.app = server;
+module.exports.server = server;
 module.exports.handler = serverless(server);
