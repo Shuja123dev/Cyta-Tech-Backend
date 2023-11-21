@@ -1,6 +1,7 @@
 {
     "version": 2,
-    "framework": "node",
+    "name": "cyta-tech-backend",
+    "functions": "vercel/api",
     "builds": [
         {
             "src": "./server.js",
