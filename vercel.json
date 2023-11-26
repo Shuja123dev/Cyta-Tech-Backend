@@ -8,9 +8,9 @@
     ],
     "routes": [
         {
-            "src": "/test",
+            "src": "/send-mail",
             "methods": [
-                "GET"
+                "POST"
             ],
             "dest": "/index.js"
         }
