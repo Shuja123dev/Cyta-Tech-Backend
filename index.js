@@ -11,7 +11,7 @@ server.get("/", (req, res) => {
     res.send("Home Page");
 })
 
-const transporter = nodeMialer.createTransport({
+const transporter = nodeMailer.createTransport({
     service: 'outlook',
     auth: {
         user: "shujaa.udin@outlook.com",
