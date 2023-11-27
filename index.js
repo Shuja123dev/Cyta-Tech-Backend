@@ -19,7 +19,7 @@ const transporter = nodeMailer.createTransport({
     }
 })
 
-function sendMail(message) {
+const sendEmail = async (message) => {
     const mailBody = `First Name : ${message.firstName}
     Last Name : ${message.lastName}
     E-mail : ${message.email}
@@ -35,23 +35,28 @@ function sendMail(message) {
     const mailInfo = {
         from: 'shujaa.udin@outlook.com',
         to: 'shuja1339@gmail.com',
-        subject: 'test',
+        subject: `Mail from ${message.email}`,
         text: mailBody,
     }
-    transporter.sendMail(mailInfo, (error, info) => {
+    const res = await transporter.sendMail(mailInfo, (error, info) => {
         if (error) {
-            console.log("error : ", error);
+            console.log("error");
+            return error
         }
         else {
-            console.log("mail sent", info.response)
+            console.log("info.response");
+            return info.response
         }
     })
+    console.log("after sending");
+    return res;
 }
 
-server.post("/send-mail", (req, res) => {
+server.post("/send-mail", async (req, res) => {
     const mailInfo = req.body;
-    sendMail(mailInfo);
-    res.send("test Route Working");
+    const response = await sendEmail(mailInfo);
+    console.log(response);
+    res.send(response);
 })
 
 server.listen(8002, () => {
